@@ -1,20 +1,20 @@
 import React from 'react';
 
 
-const Weather = () => {
+const Weather = (props) => {
     return(
         <div className = "container">
             <div className="cards">
-                <h1> London </h1>
+                <h1> {props.city},{props.country} </h1>
                 <h5 className="py-4">
                     {/* copy this class name from the icons className to add sun icon in the project*/}
-                    <i className="wi wi-day-sunny display-1"></i>
+                    <i className={`wi ${props.weatherIcon} display-1`}></i>
                 </h5>
                 {/* 25&deg; will give you temperature with degree unit */}
-                <h1 className="py-2">25&deg;</h1>
+                <h1 className="py-2">{props.temp_celcius}&deg;</h1>
                 {/* show max and min temperature */}
-                {minmaxTemp(24, 19)}
-                <h4 className="py-3">Slow Rain</h4>
+                {minmaxTemp(props.temp_min, props.temp_max)}
+                <h4 className="py-3">{props.description}</h4>
 
             </div>
             
